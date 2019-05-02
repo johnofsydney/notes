@@ -1,3 +1,8 @@
+## using rails template for this .gitignore file
+
+
+zebra_notes.md
+
 *.gem
 *.rbc
 /.config
