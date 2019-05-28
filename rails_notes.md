@@ -1,7 +1,27 @@
 # Rails Notes
 
+## Helpers 
+Remove logic from the view, by putting it in a helper.
+- The view itself is cleaner and easier to read.
+- The logic can be tested in unit tests.
+
+- best not to overload the helper. Keep most of the logic in the controller, model or lib
+
+- A helper is a module which rails will auto-magically include in controllers and views. 
+- Rails < 4 - helpers are available within controllers / views of the same name.
+- Rails > 5 - helpers are availble globally. So be careful.
+
+https://mixandgo.com/learn/the-beginners-guide-to-rails-helpers  
+
+## Concerns 
+Remove code from model file, particularly when it can be used across several different models. It is then `included` in the models where required.
+
 ## RSpec
+
+General overview: http://www.betterspecs.org/
+When to use `let`: https://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979
 ---
+
 
 ### build vs create
 
