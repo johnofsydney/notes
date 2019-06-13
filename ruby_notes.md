@@ -99,3 +99,4 @@ So, rake as per the example above is great for one off tasks that require all th
 https://medium.com/craft-academy/what-the-heck-is-rake-b44d4210922b
 https://www.stuartellis.name/articles/rake/
 
+(see also rails_notes.md)

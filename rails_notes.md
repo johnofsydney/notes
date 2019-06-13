@@ -75,3 +75,13 @@ To make rubocop ignore a particular setting for a particular method, eg:
 - doesn't let you 'pry' into the code
 - to use `rails s`, first: `puma-dev -stop`
 - might need to know `cd ~/.puma-dev/`
+
+## Rake within rails
+Rake tasks are automatically loaded from the folder structure lib/tasks/*.rake
+
+When we are talking about the task db:migrate for example, it is located within the rails gem in lib/tasks/databases.rake
+
+So for a specific project, you will always have the tasks within the project folder structure as well as all tasks within the specified gems.
+
+https://stackoverflow.com/questions/4742930/where-are-rake-tasks-defined
+
