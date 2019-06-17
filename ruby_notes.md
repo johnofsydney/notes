@@ -1,10 +1,59 @@
 # Ruby Notes
 
 ## Require
+Is used to import a library (separate file)
+Once a file is _required_ in your project you can use the code as if it were written in your project.
+- to use a gem - require it
+- in a test file, require the file under test.
 
 ## Include 
+The include method is the primary way to "extend" classes with other modules (usually referred to as mix-ins). (from SO)
+If you `include` a module in your class, all of the methods etc defined in the module are now available in the class, as if they were a native part of the class.
+The methods thusly defined are _instance variables_
+good discussion: https://stackoverflow.com/questions/318144/what-is-the-difference-between-include-and-require-in-ruby
+
+## Extend
+Like _include_ but different. the standard methods in the module with which you extend your class become class methods.
 
 ## Modules
+Are a bit like classes, but a bit different too
+A Module can contain constants and methods and these can be called directly on the Module, like a class method eg
+```
+module Foo
+  def self.hello
+    puts "hello"
+  end
+end
+
+Foo.hello
+# => "hello"
+```
+But you can't make a new instace of a module. After all it's not a class.
+
+Module's are a useful way of moving code out of a class though, you write the code in the module, and then include it with the class.
+All code that is included in this way acts as if it were written directly in the class.
+```
+module Foo
+  def say_foo
+    p "foo"
+  end  
+end  
+
+class Bar
+  include Foo
+end  
+
+bar = Bar.new
+bar.say_foo
+"foo"
+=> "foo"
+```
+If your module is in another file (and can't be accessed via rails magic) then you need to `require` the file and `include` the module in your class.
+
+#### Further note on include vs extend
+thinking about the direction
+If your class _includes_ a module, the class is the primary thing. A class has instances, thus the standard  methods in the module are now instance methods.
+If your class _extends_ a module, the module is the primary thing. A module has no intances, the the standard methods in the module are class methods.
 
 ## Class methods
 Called on the _class_ rather than the instance of the class.
