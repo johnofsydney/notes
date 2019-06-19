@@ -7,14 +7,27 @@ Remove logic from the view, by putting it in a helper.
 
 - best not to overload the helper. Keep most of the logic in the controller, model or lib
 
-- A helper is a module which rails will auto-magically include in controllers and views. 
+- A helper is a module which rails will *auto-magically* include in controllers and views. 
 - Rails < 4 - helpers are available within controllers / views of the same name.
 - Rails > 5 - helpers are availble globally. So be careful.
 
 https://mixandgo.com/learn/the-beginners-guide-to-rails-helpers  
 
 ## Concerns 
-Remove code from model file, particularly when it can be used across several different models. It is then `included` in the models where required.
+Remove code from model file, particularly when it can be used across several different models. It is then *auto-magically* `included` in the models where required.
+
+## Service Class / Service Object
+Another place to put code that doesn't truly belong in either a model or a controller. 
+If the code can be used across several models / controllers - consider moving it to a service class.
+If the controller codebase is getting too long, and it's core functionality (eg CRUD) would be clearer by moving some code elsewhere - consider moving it to a service class.
+Each service class should encapsulate a single piece of business logic. Of course you can combine several classes in a module to keep track of things.
+https://www.toptal.com/ruby-on-rails/rails-service-objects-tutorial
+Place your service object in `app/services` Rails will load this object *auto-magically* because it autoloads everything under app/. 
+
+
+## Rails magic - autoloading
+https://guides.rubyonrails.org/autoloading_and_reloading_constants.html
+
 
 ## RSpec
 
