@@ -33,6 +33,8 @@ https://guides.rubyonrails.org/autoloading_and_reloading_constants.html
 
 General overview: http://www.betterspecs.org/
 When to use `let`: https://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979
+matchers: https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/
+
 ---
 
 
