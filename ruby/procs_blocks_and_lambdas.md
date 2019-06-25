@@ -38,6 +38,19 @@ l1 = lambda { puts d }
 l1.call
 ```
 
+also _stabby_ lambdas
+```
+foo = ->(arg1,arg2) {arg1 * arg2}
+=> #<Proc:0x00007fe442a058b0@(pry):2 (lambda)>
+
+foo.call(2, 3)
+=> 6
+
+[5] pry(main)> foo.call("foo", 3)
+=> "foofoofoo"
+```
+--
+
 The block of code can't be assigned directly to a variable. eg
 ```
 var = { |x| x ** 2 } 
@@ -50,5 +63,7 @@ var1 = Proc.new { |x| x** 2 }
 #  or
 var2 = lambda { |x| x ** 2 }
 ```
+
+
 
 There are differences between procs and lambdas, details to come...

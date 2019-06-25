@@ -6,3 +6,5 @@ notes on how to do codey stuff
 - [Ruby Notes](./ruby/ruby_notes)
     - [Procs Blocks and Lambdas](./ruby/procs_blocks_and_lambdas)
     - [Methods](./ruby/methods)
+    - [Require / Include / Extend](./ruby/require_include_extend)
+    - [Inheritance](./ruby/inheritance)

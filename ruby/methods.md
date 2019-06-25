@@ -1,6 +1,6 @@
 # Ruby
 
-## Methods
+## Cool / Unusual Methods
 
 #### `tap`
 _The primary purpose of this method is to “tap into” a method chain, in order to perform operations on intermediate results within the chain._  

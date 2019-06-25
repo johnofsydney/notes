@@ -5,8 +5,8 @@ to manually git diff, eg -
 `git diff -C -M <LATEST COMMIT ID> <EARLIER COMMIT ID> -- "package-lock.json"`
 
 ## Git config
-`git config --global core.editor "atom --wait"`
-
+`git config --global core.editor "code --wait"`
+`git config --global -e`
 
 ## cURL
 
