@@ -3,8 +3,8 @@
 ## Methods
 
 #### `tap`
-_The primary purpose of this method is to “tap into” a method chain, in order to perform operations on intermediate results within the chain._
-https://apidock.com/ruby/Object/tap
+_The primary purpose of this method is to “tap into” a method chain, in order to perform operations on intermediate results within the chain._\
+[https://apidock.com/ruby/Object/tap](https://apidock.com/ruby/Object/tap)
 
 ```
 (1..10).to_a.select{|x| x.odd?}.tap{ |x| p x * 2 }
