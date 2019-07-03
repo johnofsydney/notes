@@ -8,3 +8,4 @@ notes on how to do codey stuff
     - [Methods](./ruby/methods)
     - [Require / Include / Extend](./ruby/require_include_extend)
     - [Inheritance](./ruby/inheritance)
+- [SQL notes](./sql_notes)
