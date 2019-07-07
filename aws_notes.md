@@ -15,10 +15,14 @@
 
 ## Ruby AWS Lambda tutorial
 
-
-
 Start here:
 https://serverless.com/blog/api-ruby-serverless-framework/
 
 at work it is necessary to set a run-time env variable for AWS_PROFILE
 e.g. `AWS_PROFILE=testing serverless deploy`
+
+## Local
+```
+$ saml2aws login
+$ AWS_PROFILE=testing npx sls invoke local -f makeFileAndWriteToS3 --stage testing
+```
