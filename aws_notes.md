@@ -26,3 +26,17 @@ e.g. `AWS_PROFILE=testing serverless deploy`
 $ saml2aws login
 $ AWS_PROFILE=testing npx sls invoke local -f makeFileAndWriteToS3 --stage testing
 ```
+
+queues in aws
+
+Reading from queue
+https://serverless.com/framework/docs/providers/aws/events/sqs/
+https://serverless.com/blog/aws-lambda-sqs-serverless-integration/
+
+
+triggering an event when s3 receives an item
+https://serverless.com/framework/docs/providers/aws/events/s3/
+
+
+sending a message to a queue
+https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/sqs-example-send-messages.html

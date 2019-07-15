@@ -134,3 +134,21 @@ https://www.stuartellis.name/articles/rake/
 
 (see also rails_notes.md)
 
+
+## Operators
+
+#### The Lonely Operator
+https://stackoverflow.com/questions/10371673/how-i-can-check-if-an-object-is-null-in-ruby-on-rails-2
+https://ruby-operators.herokuapp.com/lonely
+
+_use &. operator ('lonely operator') to check for nil at the same time as accessing a value._
+
+```
+@person&.spouse&.name
+
+# is basically the same as (this is rails I think)
+@person.try(:spouse).try(:name)
+
+# both of which save us from having to write
+@person.spouse.name if @person && @person.spouse
+```

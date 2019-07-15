@@ -66,4 +66,22 @@ var2 = lambda { |x| x ** 2 }
 
 
 
-There are differences between procs and lambdas, details to come...
+There are differences between procs and lambdas...
+A lambda is a type of proc, one that ensures the number of parameters passed to it is correct.
+from https://stackoverflow.com/questions/8476627/what-do-you-call-the-operator-in-ruby
+
+```
+[5] pry(main)> l = lambda { |x| x ** 2 }
+=> #<Proc:0x00007fc04d797ec0@(pry):5 (lambda)>
+[6] pry(main)> l.call(4)
+=> 16
+[7] pry(main)> l.call(4,5)
+ArgumentError: wrong number of arguments (given 2, expected 1)
+
+[8] pry(main)> p = Proc.new {|x| x**2 }
+=> #<Proc:0x00007fc04d72cbc0@(pry):8>
+[9] pry(main)> p.call(4)
+=> 16
+[10] pry(main)> p.call(4,5)
+=> 16
+```
