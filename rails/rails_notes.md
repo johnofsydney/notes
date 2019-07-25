@@ -100,3 +100,23 @@ So for a specific project, you will always have the tasks within the project fol
 
 https://stackoverflow.com/questions/4742930/where-are-rake-tasks-defined
 
+
+
+## Scope
+ActiveRecord is the default ORM for rails. When we have an ActiveRecord collection, we can invoke methods such as `User.first` or `User.all`
+
+Scopes allow us to specify custom methods to invoke on a collection, e.g.
+```
+class TokenizedFooBar < ApplicationRecord
+  FASTERCARD = 'FasterCard'.freeze
+
+  scope :not_scrubbed, -> { where.not(encrypted_number: nil) }
+  scope :expiring_in, -> (range) { where(expiry: range) }
+  scope :fastercard, -> { where(card_type: FASTERCARD) }
+end
+```
+which can then be used thusly:
+```
+TokenizedCreditCard.fastercard.expiring_in(EXPIRY_RANGE).limit(20)
+```
+note that these can be _chained_ just as any ruby method

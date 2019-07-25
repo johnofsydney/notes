@@ -152,3 +152,4 @@ _use &. operator ('lonely operator') to check for nil at the same time as access
 # both of which save us from having to write
 @person.spouse.name if @person && @person.spouse
 ```
+
