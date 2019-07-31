@@ -129,7 +129,7 @@ note that these can be _chained_ just as any ruby method
 _Ruby programmers reserve ! to adorn the names of methods that do something unexpected, or perhaps a bit dangerous_
 
 In this case, the "unexpected" result is that an exception is raised instead of just failing and returning false.
-So, if the instance of the class / model / record, cannot be created then
+So, if the instance of the class / model / record, cannot be created (e.g. a validation error) then
 ```
 .create
 => false
@@ -137,3 +137,4 @@ So, if the instance of the class / model / record, cannot be created then
 .create!
 => Raises Exception
 ```
+
