@@ -29,27 +29,6 @@ Place your service object in `app/services` Rails will load this object *auto-ma
 https://guides.rubyonrails.org/autoloading_and_reloading_constants.html
 
 
-## RSpec
-
-General overview: http://www.betterspecs.org/
-When to use `let`: https://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979
-matchers: https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/
-
----
-
-
-### build vs create
-
-The create() method persists the instance of the model while the build()method keeps it only on memory.
-Personally, I use the create() method only when persistence is really necessary since writing to DB makes testing time consuming.
-e.g.
-I create users to authentication with create() because my authentication engine queries the DB.
-To check if a model has an attribute the build() method will do because no DB access is required.
-
----
-
-Using FactoryGirl.build(:factory_name) does not persist to the db and does not call save!, so your Active Record validations will not run. This is much faster, but validations might be important.
-Using FactoryGirl.create(:factory_name) will persist to the db and will call Active Record validations. This is obviously slower but can catch validation errors (if you care about them in your tests).
 
 ---
 

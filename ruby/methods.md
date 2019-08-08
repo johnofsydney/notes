@@ -24,3 +24,15 @@ _The primary purpose of this method is to “tap into” a method chain, in orde
 [5, 7, 9, 5, 7, 9]
 => [5]
 ```
+
+## Getters and Setters
+    # self.name = "John"
+
+    # def name=(val)
+    #   @name = val
+    # end
+
+    # def name
+    #   @name
+    # end
+    

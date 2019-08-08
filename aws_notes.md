@@ -40,3 +40,18 @@ https://serverless.com/framework/docs/providers/aws/events/s3/
 
 sending a message to a queue
 https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/sqs-example-send-messages.html
+
+
+## Serverless.yml
+_from Jim at work..._
+Serverless article on variables
+https://serverless.com/framework/docs/providers/aws/guide/variables/
+ 
+This article explains a simple way to work with stage variables.
+https://serverless-stack.com/chapters/serverless-environment-variables.html
+ 
+I have also used this in the past. Be mindful that this method uses a plugin and from memory, you can only use standard naming for stages (I think)
+https://www.jeremydaly.com/how-to-manage-serverless-environment-variables-per-stage/
+ 
+Both methods work. Ultimately we would like to see that each deployment of a stack is self-contained. The resources that we reference would not need to be hard-coded into any of the function handlers which would allow for resources changes to be made in config which in turn would make the code more portable.
+
