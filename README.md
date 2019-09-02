@@ -12,3 +12,4 @@ notes on how to do codey stuff
 - [SQL notes](./sql_notes)
 - [AWS notes](./aws_notes)
 - [git and bash notes](./git_and_bash_notes)
+- [Other services](./other_services)

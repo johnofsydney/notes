@@ -95,6 +95,24 @@ describe "#method_in_code" do
     end
   end
 ```
+
+### Mocks
+
+### Stubs
+
+### Spies
+if we wish to look into the arguments received by list_objects or the number of times it is called etc, then we have to _'spy'_ on it:
+```ruby
+allow(s3_mock_client).to receive(:list_objects)
+```
+This ^^ is the simplest spy. but what it _also_ does is to clobber the return value, so the 
+method, mocked and with this spy will return `nil`
+```ruby
+allow(s3_mock_client).to receive(:list_objects).and_call_original
+```
+
+This addition allows us to get useful results from the return value if stubbed responses have been defined it will use those. if not it will actually call the original unmocked version and return from that
+
 --
 
 ## Factories
@@ -114,9 +132,9 @@ Using FactoryGirl.create(:factory_name) will persist to the db and will call Act
 --
 
 ## Readings
-General overview: http://www.betterspecs.org/
-When to use `let`: https://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979
-matchers: https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/
+- General overview: http://www.betterspecs.org/
+- When to use `let`: https://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979
+- matchers: https://relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/
 
 ---
 

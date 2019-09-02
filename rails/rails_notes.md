@@ -46,6 +46,19 @@ https://guides.rubyonrails.org/autoloading_and_reloading_constants.html
     path: '../foo_bar-models'
 ```
 
+### Updating gems
+```bash
+$ bundle outdated --filter-patch
+<...>
+Outdated gems included in the bundle:
+  * capistrano (newest 3.11.1, installed 3.11.0, requested ~> 3.1) in groups "development"
+$ bundle update capistrano --conservative
+<...>
+Fetching capistrano 3.11.1 (was 3.11.0)
+Installing capistrano 3.11.1 (was 3.11.0)
+Bundle updated!
+```
+
 ## Rubocop
 Rubocop project settings are in `.rubocop.yml`
 
