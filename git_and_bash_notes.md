@@ -8,6 +8,16 @@ to manually git diff, eg -
 `git config --global core.editor "code --wait"`
 `git config --global -e`
 
+## reverting a file
+```
+$ git checkout -- Gemfile.lock
+# will unstage a file that has been modified
+
+$ git checkout master -- Gemfile.lock
+# will get a file from a different branch
+
+```
+
 ## cURL
 
 ### Testing an API using cURL
