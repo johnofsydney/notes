@@ -107,11 +107,24 @@ allow(s3_mock_client).to receive(:list_objects)
 ```
 This ^^ is the simplest spy. but what it _also_ does is to clobber the return value, so the 
 method, mocked and with this spy will return `nil`
+
 ```ruby
 allow(s3_mock_client).to receive(:list_objects).and_call_original
 ```
 
 This addition allows us to get useful results from the return value if stubbed responses have been defined it will use those. if not it will actually call the original unmocked version and return from that
+
+Here's another noteworthy trick
+
+```ruby
+expect(sqs_mock_client).to have_received(:send_message) do |arguments|
+  message_body = JSON.parse(arguments[:message_body])
+  expect(message_body['card_holder']).to eq(card_inside_range_db.card_holder)
+  expect(message_body['token']).to eq(card_inside_range_db.token)
+end
+```
+
+In this case I wanted to check that the argument `message_body` had been received, and as it was a hash, that it contained the keys I expected, with the corresponding values I expected.
 
 --
 
