@@ -9,6 +9,7 @@ IAM roles, policies etc govern the permissions that allow / restrict interaction
   - other user accounts can be defined as either or both of
     - _human users_ who can logon via the console with a username and password and access resources.
     - _programmatic users_ have a user key and user secret key combination to login and access resources either through code or CLI
+    - New users have no permissions at all when they are first created
 - Groups
   -  groupings of eg users with same securirty / access requirements. E.G. HR, Sales, Database Users. Suits human and programmatic users.
 - Roles
