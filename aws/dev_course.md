@@ -97,7 +97,10 @@ To create / provision an EC2 instance (as per lab)
 - Launch Instance
 - Choose an AMI _(Amazon Machine Image)_ - various flavours of Linux of Windows servers
 - Choose the family _(F.I.G.H.T.D.R.M.A.C.P.X.)_
-- Set some options
+- Set some options _(Configure Instance)_
+- Add some tags
+- Configure a security group
+  - _A security group is a set of firewall rules that control the traffic for your instance. On this page, you can add rules to allow specific traffic to reach your instance. For example, if you want to set up a web server and allow Internet traffic to reach your instance, add rules that allow unrestricted access to the HTTP and HTTPS ports. You can create a new security group or select from an existing one_
 - Add storage. Must be bootable.
 - Generate, download and `chmod 400` a key pair
 - allow access to
