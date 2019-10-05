@@ -633,6 +633,8 @@ This project is for practice only, it's not getting turned into a finished app. 
 - complete the blogs/edit page
 - complete the pending tests
 - add some styling
+
+
 ---
 
 # Finished Files
