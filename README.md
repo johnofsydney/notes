@@ -5,6 +5,7 @@ notes on how to do codey stuff
 - [Node Notes](./node_notes)
 - [Rails Notes](./rails/rails_notes)
     - [Rspec](./rails/rspec)
+    - [Rails 6 new project](./rails/rails_new_project_with_devise.md)
 - [Ruby Notes](./ruby/ruby_notes)
     - [Procs Blocks and Lambdas](./ruby/procs_blocks_and_lambdas)
     - [Methods](./ruby/methods)
