@@ -104,7 +104,7 @@ class HomeController < ApplicationController
 end
 ```
 #### app/views/home/index.html.erb
-```html
+```
 <h1>Home</h1>
 ```
 
@@ -447,12 +447,12 @@ end
 To get the above tests passing, this is the minimum code required in the view pages:
 
 #### app/views/blogs/index.html.erb
-```html
+```
 <h1>Blogs</h1>
 ```
 
 #### app/views/blogs/new.html.erb
-```html
+```
 <%= form_for @blog do |f| %>
   <%= f.text_area :content %>
   <%= f.submit 'Save' %>
@@ -460,7 +460,7 @@ To get the above tests passing, this is the minimum code required in the view pa
 ```
 
 #### app/views/blogs/show.html.erb
-```html
+```
 <p><%= @blog.inspect %></p>
 ```
 
@@ -495,7 +495,7 @@ So we have a name field in the user model, but by default devise is just using t
 
 Add the field to the signup page:
 ####  app/views/devise/registrations/new.html.erb
-```html
+```
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -591,7 +591,7 @@ end
 ```
 and the blog show page as follows:
 #### app/views/blogs/show.html.erb
-```html
+```
 <p><%= @blog.inspect %></p>
 <p><%= @blog.user.name %></p>
 ```
