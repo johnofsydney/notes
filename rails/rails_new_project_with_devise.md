@@ -11,8 +11,8 @@
 ### References
 - [github repo for this project](https://github.com/johnofsydney/social_three)
 - [devise](https://github.com/plataformatec/devise)
-- [repo for a professional tutorail](https://github.com/jordanhudgens/overtime-app)
-- [devise instructions from user: withoutwax](https://gist.github.com/withoutwax/46a05861aa4750384df971b641170407)
+- [repo for a professional tutorial](https://github.com/jordanhudgens/overtime-app)
+- [devise instructions from github user: withoutwax](https://gist.github.com/withoutwax/46a05861aa4750384df971b641170407)
 - [Medium article from projectDART](https://medium.com/@teamdartlondon/day-4-strong-parameters-for-devise-adding-a-username-field-to-sign-up-log-in-a3ba9634581c)
 
 ---
@@ -30,7 +30,7 @@ add the following gems to the Gemfile
 group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 4.0.0.beta2' # required for rails 6 compatibility
-	gem 'rails-controller-testing'      # rspec 4 requirement
+  gem 'rails-controller-testing'      # rspec 4 requirement
   gem 'capybara'
 end
 gem 'devise'
