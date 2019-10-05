@@ -10,10 +10,10 @@
 ---
 ### References
 - [github repo for this project](https://github.com/johnofsydney/social_three)
-- https://github.com/plataformatec/devise
-- https://github.com/jordanhudgens/overtime-app
-- https://gist.github.com/withoutwax/46a05861aa4750384df971b641170407
-- https://medium.com/@teamdartlondon/day-4-strong-parameters-for-devise-adding-a-username-field-to-sign-up-log-in-a3ba9634581c
+- [devise](https://github.com/plataformatec/devise)
+- [repo for a professional tutorail](https://github.com/jordanhudgens/overtime-app)
+- [devise instructions from user: withoutwax](https://gist.github.com/withoutwax/46a05861aa4750384df971b641170407)
+- [Medium article from projectDART](https://medium.com/@teamdartlondon/day-4-strong-parameters-for-devise-adding-a-username-field-to-sign-up-log-in-a3ba9634581c)
 
 ---
 
@@ -87,7 +87,7 @@ $ bundle exec rspec
 ```
 
 error: `uninitialized constant HomeController`
-- we did add the route (as per the devise instructions), so we do have that, now let’s add a controller and a static page:
+we did add the route (as per the devise instructions), so we do have that, so the first error we see is for the missing controller. Let’s add a controller and a static page:
 ```bash
 $ touch app/controllers/home_controller.rb
 $ mkdir app/views/home
@@ -135,7 +135,7 @@ Next, let’s define some requirements in the specs
 	- Must have content
 	- Must have a user
 	- Test the :belongs_to association
-- WE could go BDD and define a spec for the feature _post_ or we could build up from the TDD model specs and controller specs first. Let’s tackle the model specs and controller specs first and then check the BDD / Capybara / Browser simulation version:
+- We could go full BDD and define a spec for the feature _post_ or we could build up from the TDD model specs and controller specs first. Let’s tackle the model specs and controller specs first and then check the BDD / Capybara / Browser simulation version:
 - add the tests to the model and adjust the model code itself to satisfy the tests, until they look as follows:
 
 #### spec/models/blog_spec.rb
@@ -491,7 +491,7 @@ There’s no navigation built in, so you will need to visit the following in tur
 ---
 
 ## Adding the name field to User
-SO we have a name field in the user model, but by default devise is just using the email field to identify the user. Below we'll add the user's name, note this is _not_ a username we can sign up with, just a friendly name for the user. If it were a username we ould have to modify to allow users to login with username, and the username would have to be unique. We are not concerned with that here.
+So we have a name field in the user model, but by default devise is just using the email field to identify the user. Below we'll add the user's name, note this is _not_ a username we can sign up with, just a friendly name for the user. If it were a username we ould have to modify to allow users to login with username, and the username would have to be unique. We are not concerned with that here.
 
 Add the field to the signup page:
 ####  app/views/devise/registrations/new.html.erb
