@@ -3,6 +3,7 @@
 
 - Ruby 2.6.4
 - Rails 6.0.0
+- Devise 4.7.1
 - Rspec 4.0.0 (Beta2)
 - Capybara 3.2.9
 - Postgres 10
