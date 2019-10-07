@@ -162,7 +162,7 @@ We are going to make social logins for Github and Google.
 
 First, Github:
 
-- Go to https://github.com/settings/profile
+- Go to [https://github.com/settings/profile](https://github.com/settings/profile)
 - choose **Developer settings > OAuth applications** from the menu on the left.
 - Click the **Register a new application** button.
 - Fill in the **Application name**, **Homepage URL**, and **Application description** fields.
@@ -171,7 +171,7 @@ First, Github:
 Note down the _**Client ID**_, and _**Client Secret**_ shown on the page as they will be needed later.
 
 Next, Google
-- Go to https://console.developers.google.com/flows/enableapi?apiid=people.googleapis.com&credential=client_key
+- Go to [https://console.developers.google.com/flows/enableapi?apiid=people.googleapis.com&credential=client_key](https://console.developers.google.com/flows/enableapi?apiid=people.googleapis.com&credential=client_key)
 - **Create a Project > Continue**
 - **Go to Credentials**
 - See where it says _“If you want you can skip this step and create an  API key, client ID  or  service account.”_ and click on the link for **client ID**
@@ -240,7 +240,7 @@ First add the gems
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 ```
-There's loads of other options for OAuth providers, see this list https://github.com/omniauth/omniauth/wiki/List-of-Strategies
+There's loads of other options for OAuth providers, see this list [https://github.com/omniauth/omniauth/wiki/List-of-Strategies](https://github.com/omniauth/omniauth/wiki/List-of-Strategies)
 
 and then
 ```bash
@@ -265,7 +265,7 @@ Leave it as it is, and past the following below:
   google_client_secret = Rails.application.credentials.google_oauth2[:client_secret]
   config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
 ```
-Why skip jwt? : https://github.com/zquestz/omniauth-google-oauth2/issues/195
+Why skip jwt? : [https://github.com/zquestz/omniauth-google-oauth2/issues/195](https://github.com/zquestz/omniauth-google-oauth2/issues/195)
 
 
 Next look in `app/models/user.rb` and add `:omniauthable, omniauth_providers: %i[github google_oauth2]`, the file should look like:
