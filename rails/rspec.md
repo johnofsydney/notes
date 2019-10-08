@@ -97,8 +97,11 @@ describe "#method_in_code" do
 ```
 
 ### Mocks
+A mock is a stand in that simulates the behaviour of a complex real object. We mock things that might take a long time and outside of the _unit_ that we're testing. Typically we should mock calls to APIs.
+The mock should provide the same input and output interface - arguments, methods and return values
 
 ### Stubs
+a stub is a small 
 
 ### Spies
 if we wish to look into the arguments received by list_objects or the number of times it is called etc, then we have to _'spy'_ on it:
@@ -132,7 +135,7 @@ In this case I wanted to check that the argument `message_body` had been receive
 
 ### build vs create
 
-The create() method persists the instance of the model while the build()method keeps it only on memory.
+The create() method persists the instance of the model while the build() method keeps it only on memory.
 Personally, I use the create() method only when persistence is really necessary since writing to DB makes testing time consuming.
 e.g.
 I create users to authentication with create() because my authentication engine queries the DB.
