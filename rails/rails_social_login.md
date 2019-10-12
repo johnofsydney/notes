@@ -1,5 +1,5 @@
 # Rails 6 app with Devise & Social Login
-### Create a Ruby-On-Rails project with a devise based user model, and use OAuth to signup / sign in with either Github or Google.
+### Stand up a Ruby-On-Rails project super fast using a template, and add OAuth to signup / sign in with either Github or Google.
 
 - Ruby 2.6.4
 - Rails 6.0.0
