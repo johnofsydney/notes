@@ -31,6 +31,20 @@ https://guides.rubyonrails.org/autoloading_and_reloading_constants.html
 
 
 ---
+## Decorators
+
+Bearing in mind
+- Models should be fat and controllers skinny
+- Models don't need to know anything about presenting the data, and views should be dumb and just present the data
+It seems we should stack _everything_ into the controller. But
+- They might get too big and unwiedly
+- Quite likely you'll duplicate presentation logic in different controller methods, both within the same controller and across different controllers
+So an option is to use the design pattern defined by _decorators_
+
+Read up more here: https://www.thegreatcodeadventure.com/rails-refactoring-part-iii-the-decorator-pattern/
+TODO: write up a personal description when I have a personal example
+
+---
 
 ## Gems
 ```rb

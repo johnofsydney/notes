@@ -133,3 +133,13 @@ https://rubymonk.com/learning/books/4-ruby-primer-ascent/chapters/18-blocks/less
 
 
 
+### Internationalization Things
+
+If you need to replace accented chars like `ä` with their plainer versions (`a`) then do this...
+```rb
+require "i18n"
+
+# replace accented characters with plain versions
+I18n.available_locales = I18n.available_locales + [:en]
+text = I18n.transliterate(text)
+```
