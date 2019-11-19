@@ -49,15 +49,17 @@ TODO: write up a personal description when I have a personal example
 ## Gems
 ```rb
   # using a gem in the normal fashion
-  # gem 'foo_bar_models', '~> 0.2.802', require: 'foo_bar/models'
+  gem 'foo_bar_models', '~> 0.2.802', 
+    # then require: 'foo_bar/models'
 
   # using a gem via git, specifying a branch
-  # gem 'foo_bar_models', require: 'foo_bar/models', git: gem_stash_url('foo_bar-models'), branch: 'bug/whatever'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+    # then require: 'faker'
 
   # using a local gem
-  gem 'foo_bar_models',
-    require: 'foo_bar/models',
-    path: '../foo_bar-models'
+  gem 'foo_bar_models', path: '../foo_bar-models'
+    # then require: 'foo_bar/models',
+    
 ```
 
 ### Updating gems
