@@ -15,8 +15,8 @@ describe "#method_in_code" do
       {
         'person' => "John Johnsonson",
         'expiry' => Time.new,
-        'type' =>   'Card',
-        'token' => "xyz123"
+        'type' =>   'Job',
+        'reference' => "xyz123"
       }.to_json
     end
     let(:event) do
@@ -122,8 +122,8 @@ Here's another noteworthy trick
 ```ruby
 expect(sqs_mock_client).to have_received(:send_message) do |arguments|
   message_body = JSON.parse(arguments[:message_body])
-  expect(message_body['card_holder']).to eq(card_inside_range_db.card_holder)
-  expect(message_body['token']).to eq(card_inside_range_db.token)
+  expect(message_body['technician']).to eq(job.technician)
+  expect(message_body['job_number']).to eq(job.job_number)
 end
 ```
 

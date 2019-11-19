@@ -143,3 +143,40 @@ require "i18n"
 I18n.available_locales = I18n.available_locales + [:en]
 text = I18n.transliterate(text)
 ```
+
+
+
+
+### Shovel operator
+
+#### Here's he Shovel Operator working in standard uncomplicated fashion:
+```
+[1,2,3] << 5
+=> [1, 2, 3, 5]
+```
+
+#### But what is going on here?
+```rb
+# define a hash
+h = {breed: 'Dog', name: 'Rex'}
+=> {:breed=>"Dog", :name=>"Rex"}
+
+# shovel that hash into an unamed class with a method
+class << h
+  def greet
+    p "I am #{self[:name]}, a #{self[:breed]}"
+  end
+end
+=> :greet
+
+# hash pretends to be untouched
+> h
+=> {:breed=>"Dog", :name=>"Rex"}
+> h.class
+=> Hash
+
+# We can call the method
+h.greet
+"I am Rex, a Dog"
+=> "I am Rex, a Dog"
+```
