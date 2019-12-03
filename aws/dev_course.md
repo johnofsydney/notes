@@ -138,3 +138,30 @@ There are three kinds of Load Balancers
   - a 504 error _Gateway Timeout Error_ means there's an error at the web server or the database and that the gateway has timed out during the idle timeout period
 
 **NB** As the Load Balancer will act to mask the address of the original request, if you need the original callers IP address, look in the headers for _X-Forwaded-For_
+
+## Route 53
+
+- Create a Hosted Zone
+- Inside lives your domain (Register a domain, just like you would anywhwere else)
+- your domain has a record set (DNS Records), one of
+  - A Record IPv4 (have used this for the lab - hotmint.net)
+  - AAAA IPv6
+  - CName
+
+For A & AAAA record sets, you create an alias for the top level domain that points to an AWS resource. This could be one of S3 website, Load Balancer (Classic, Application or Network), Cloudfront, Elastic Beanstalk...
+In the lab we will point to an _Application Load Balancer_
+
+Need to backtrack a bit here, in order to alias your domain name to a load balancer, first you need to create a load balancer that points to your EC2 instance
+
+- Application Load Balancer
+  - has a name
+  - choose whether to listen on IPv4 or v6
+  - choose where to listen, eg port 80 for http, port 443 for https
+  - choose availability zones (choose many for redundancy)
+  - configure security groups (assign security group previously defined)
+  - configure routing, basically the pointing part, in the lab we point to an EC2 instance using instance id
+  - has a health check by checking on _/index.html_
+
+Once that's set up you can go back to Route53 to point the domain to the ALB
+- 
+
