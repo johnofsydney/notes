@@ -7,6 +7,7 @@ notes on how to do codey stuff
     - [Rspec](./rails/rspec)
     - [Rails 6 new project with Devise and Rspec](./rails/rails_new_project_with_devise.md)
     - [Rails 6 Devise Social Login](./rails/rails_social_login.md)
+    - [Rails 6 with Bootstrap](./rails/rails_6_with_bootstrap.md)
 - [Ruby Notes](./ruby/ruby_notes)
     - [Procs Blocks and Lambdas](./ruby/procs_blocks_and_lambdas)
     - [Methods](./ruby/methods)
