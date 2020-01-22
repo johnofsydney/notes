@@ -34,20 +34,26 @@ $ touch app/controllers/home_controller.rb
 ## Modify the application.html.erb thusly
 #### app/views/layouts/application.html.erb
 ```
-<%= stylesheet_pack_tag ‘application’, media: 'all' %>
+<%= stylesheet_pack_tag 'application', media: 'all' %>
 <%= javascript_pack_tag 'application' %>
 ```
 
 ## import the new stylesheet intto application.js manifest
 #### app/javascript/packs/application.js
 ```
-import ‘../stylesheets/application’
+import '../stylesheets/application'
+```
+
+## import bootstrap into the new stylesheet application.scss
+####  app/javascript/stylesheets/application.scss
+```
+@import 'materialize-css/dist/css/materialize';
 ```
 
 ## Ammend web pack config as follows
 #### config/webpack/environment.js
 ```
-const { environment } = require(‘@rails/webpacker')
+const { environment } = require('@rails/webpacker')
 
 const webpack = require('webpack')
 environment.plugins.prepend(
@@ -55,7 +61,7 @@ environment.plugins.prepend(
   new webpack.ProvidePlugin({
     $: "jquery/src/jquery",
     jQuery: "jquery/src/jquery",
-    Popper: [“popper.js”, “default”]
+    Popper: ["popper.js", "default"]
   })
 );
 
@@ -65,7 +71,7 @@ module.exports = environment
 ## Add a route to home
 #### config/routes.rb
 ```
-root to: 'home#index’
+root to: 'home#index'
 ```
 
 ## Add home controller action
@@ -82,12 +88,15 @@ end
 <h1>Welcome to bootstrap</h1>
 ```
 
-### Further reading
+## Further reading
 _This note is based on these articles_
 
-https://medium.com/@adrian_teh/ruby-on-rails-6-with-webpacker-and-bootstrap-step-by-step-guide-41b52ef4081f
+[by @adrian_teh on medium](https://medium.com/@adrian_teh/ruby-on-rails-6-with-webpacker-and-bootstrap-step-by-step-guide-41b52ef4081f)
 
-https://medium.com/@guilhermepejon/how-to-install-bootstrap-4-3-in-a-rails-6-app-using-webpack-9eae7a6e2832
+[by @guilhermepejon on medium (bootstrap)](https://medium.com/@guilhermepejon/how-to-install-bootstrap-4-3-in-a-rails-6-app-using-webpack-9eae7a6e2832)
+
+[by @guilhermepejon on medium (materialize)](https://medium.com/@guilhermepejon/how-to-install-materialize-css-in-rails-6-0-0-beta2-using-webpack-347c03b7104e)
+
 
 
 
