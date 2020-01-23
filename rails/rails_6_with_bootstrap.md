@@ -3,7 +3,7 @@
 
 Follow the steps below. For further info read the links at the bottom
 
-### Make the project
+## Make the project
 ```
 $ rails new rails_6_with_bootstrap -T --skip-turbolinks
 $ $ cd rails_6_with_bootstrap
@@ -15,20 +15,20 @@ $ mkdir app/javascript/stylesheets
 $ touch app/javascript/stylesheets/application.scss
 ```
 
-## Add a view page and controller
+### Add a view page and controller
 ```
 $ mkdir app/views/home
 $ touch app/views/home/index.html.erb
 $ touch app/controllers/home_controller.rb
 ```
 
-## Add a route to home
+### Add a route to home
 #### config/routes.rb
 ```
 root to: 'home#index'
 ```
 
-## Add home controller action
+### Add home controller action
 #### app/controllers/home_controller.rb
 ```
 class HomeController < ApplicationController
@@ -36,7 +36,7 @@ class HomeController < ApplicationController
 end
 ```
 
-## Add some content to your home page
+### Add some content to your home page
 #### app/views/home/index.html.erb
 ```
 <h1>Welcome to bootstrap</h1>
@@ -49,6 +49,9 @@ end
 $ yarn add jquery
 $ yarn add popper.js
 $ yarn add bootstrap
+
+# to use materialize css swap the last line for
+# $ yard add materialize
 ```
 
 ## Modify the application.html.erb thusly
@@ -68,6 +71,10 @@ import '../stylesheets/application'
 ####  app/javascript/stylesheets/application.scss
 ```
 @import "~bootstrap/scss/bootstrap";
+
+# or use
+# @import 'materialize-css/dist/css/materialize';
+# for materialize css
 ```
 
 ## Ammend web pack config as follows
