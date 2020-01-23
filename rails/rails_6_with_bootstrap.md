@@ -15,57 +15,11 @@ $ mkdir app/javascript/stylesheets
 $ touch app/javascript/stylesheets/application.scss
 ```
 
-## Add dependencies using yarn
-```
-$ yarn add jquery
-$ yarn add popper.js
-$ yarn add bootstrap
-```
-
 ## Add a view page and controller
 ```
 $ mkdir app/views/home
 $ touch app/views/home/index.html.erb
 $ touch app/controllers/home_controller.rb
-```
-
----
-
-## Modify the application.html.erb thusly
-#### app/views/layouts/application.html.erb
-```
-<%= stylesheet_pack_tag 'application', media: 'all' %>
-<%= javascript_pack_tag 'application' %>
-```
-
-## import the new stylesheet intto application.js manifest
-#### app/javascript/packs/application.js
-```
-import '../stylesheets/application'
-```
-
-## import bootstrap into the new stylesheet application.scss
-####  app/javascript/stylesheets/application.scss
-```
-@import 'materialize-css/dist/css/materialize';
-```
-
-## Ammend web pack config as follows
-#### config/webpack/environment.js
-```
-const { environment } = require('@rails/webpacker')
-
-const webpack = require('webpack')
-environment.plugins.prepend(
-  "Provide",
-  new webpack.ProvidePlugin({
-    $: "jquery/src/jquery",
-    jQuery: "jquery/src/jquery",
-    Popper: ["popper.js", "default"]
-  })
-);
-
-module.exports = environment
 ```
 
 ## Add a route to home
@@ -87,6 +41,54 @@ end
 ```
 <h1>Welcome to bootstrap</h1>
 ```
+---
+
+
+## Add dependencies using yarn
+```
+$ yarn add jquery
+$ yarn add popper.js
+$ yarn add bootstrap
+```
+
+## Modify the application.html.erb thusly
+#### app/views/layouts/application.html.erb
+```
+<%= stylesheet_pack_tag 'application', media: 'all' %>
+<%= javascript_pack_tag 'application' %>
+```
+
+## import the new stylesheet into application.js manifest
+#### app/javascript/packs/application.js
+```
+import '../stylesheets/application'
+```
+
+## import bootstrap into the new stylesheet application.scss
+####  app/javascript/stylesheets/application.scss
+```
+@import "~bootstrap/scss/bootstrap";
+```
+
+## Ammend web pack config as follows
+#### config/webpack/environment.js
+```
+const { environment } = require('@rails/webpacker')
+
+const webpack = require('webpack')
+environment.plugins.prepend(
+  "Provide",
+  new webpack.ProvidePlugin({
+    $: "jquery/src/jquery",
+    jQuery: "jquery/src/jquery",
+    Popper: ["popper.js", "default"]
+  })
+);
+
+module.exports = environment
+```
+
+
 
 ## Further reading
 _This note is based on these articles_
