@@ -70,7 +70,7 @@ import '../stylesheets/application'
 ## import bootstrap into the new stylesheet application.scss
 ####  app/javascript/stylesheets/application.scss
 ```
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 
 # or use
 # @import 'materialize-css/dist/css/materialize';
