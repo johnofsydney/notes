@@ -61,10 +61,16 @@ $ yarn add bootstrap
 <%= javascript_pack_tag 'application' %>
 ```
 
-## import the new stylesheet into application.js manifest
+## import the new stylesheet and supporting js files into application.js manifest
 #### app/javascript/packs/application.js
 ```
-import '../stylesheets/application'
+require("jquery")
+
+// bootstrap js
+import 'bootstrap';
+
+// bootstrap css
+import '../stylesheets/application';
 ```
 
 ## import bootstrap into the new stylesheet application.scss
