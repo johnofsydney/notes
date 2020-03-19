@@ -1,13 +1,16 @@
 # Rails Project - join table with extra column(s)
 
 If you need to join two tables, e.g. students & courses, or patients & doctors, but also store extra information relating to the join itself, read on.
-In the case of joining patients and doctors, we could call the join _appointments_, it would have additional information relating to the appointment time, and this is the example used at https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association
-In the case of joining students and classes, we could call the join _results_, and it would have additional information about the score that a particular student got for a particular course.
+In the case of joining patients and doctors, we could call the join `appointments`, it would have additional information relating to the appointment time, and this is the example used in the [rails guides](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
+In the case of joining students and classes, we could call the join `results`, and it would have additional information about the score that a particular student got for a particular course.
 
-It's this result => student / course / score combination described here in this note:
+It's this `result => student / course / score` combination described here in this note:
+
 [project repo](https://github.com/johnofsydney/results_join_table)
 
-### First set up the project and generte resources
+check in the repo as a reference for anything not listed here. Otherwise just follow the steps below to get the project up and running.
+
+### First set up the project and generate resources
 Run these from a fresh teminal window
 ```sh
 $ rails new results_join_table -T -d postgresql
