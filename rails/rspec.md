@@ -30,10 +30,10 @@ $ bundle exec rspec
 $ bundle exec rspec spec/functions/dynamo_reader_spec.rb
 
 # To run the tests at a specific line number:
-$ bundle exec rspec spec/functions/finalise_settlement_spec.rb:177
+$ bundle exec rspec spec/functions/finalise_something_spec.rb:177
 
 # To run the tests matching a particular phrase (in the test description):
-$ bundle exec rspec spec/functions/finalise_settlement_spec.rb -e "Visa"
+$ bundle exec rspec spec/functions/finalise_something_spec.rb -e "weekend"
 ```
 ---
 ## Test Outlines
@@ -56,6 +56,10 @@ We can use nested contexts to test different scenarios, see below.
 #### `subject` and `let`
 This is how _lazily loaded_ variables are declared in Rspec
 `subject` and `let` are functionally the same, but we reserve `subject` for the _thing being tested_.
+Think about what the method _does_ when naming the subject. Good names for the `subject` include:
+- _the name of the method itself_ eg: `subject(:transform) { described_class.new(color).transform(animal, vegetable, mineral) }`
+- `result` - if the method is supposed to return an answer; like `true` / `false` or `5`
+- `perform` - especially good if the method is supposed to start other actions that won't all be shown in the return value, like instantiating other services, which can be checked with spies.
 
 #### `it`
 The expectation / assertion is where we test that the method (when passed the particular arguments) delivers the expected results.
@@ -83,6 +87,53 @@ describe "#method_in_code" do
 end
 ```
 
+Often as we move through a nest of contexts it is necessary to vary a variable that was declared and used for the top context. If it is a single variable, we can just overwrite it as per the example above. But if we need to add / subtract values from a hash, this can be done as so:
+```rb
+context 'at the top' do
+  # basic set of options
+  let(:options) do
+    {
+      direction: direction,
+      size: size
+    }
+  end
+  let(:direction) { 'north' }
+  let(:size) { 'large' }
+
+  it { expect(result).to eq(true) }
+
+  context 'in the middle' do
+    # add some new key/value pairs using super().merge()
+    let(:options) do
+      super().merge(
+        color: color
+      )
+    end
+    let(:direction) { 'east' }
+    let(:size) { 'medium' }
+    let(:color) { 'red' }
+
+    it { expect(result).to eq(true) }
+
+    context 'at the bottom' do
+      # add some new key/value pairs using super().merge()
+      # and remove some keys using .reject
+      let(:options) do
+        super().merge(
+          speed: speed
+        ).reject do |key, _value|
+          %i[size color].include?(key)
+        end
+      end
+      let(:direction) { 'south' }
+      let(:speed) { 'fast' }
+
+      it { expect(result).to eq(true) }
+    end
+  end
+end
+```
+
 ### Before / Do
 - Runs before _each_ test
 - In the order
@@ -93,6 +144,7 @@ end
   - after  :context
   - after  :suite
 - You can _usually_ move the invocation of the method under test into the before / do block, which is especially useful if most of your tests are concenred with side effects rather than the return value of the method under test.
+
 ---
 
 ## Spies (Testing side effects)
@@ -118,11 +170,12 @@ describe "#method_in_code" do
 end
 ```
 **A note of caution**
-When we define a like this we can observe that it was invoked, and with what arguments.
+When we define a spy like this we can observe that it was invoked, and with what arguments.
 But without specifying a return value, it will return `nil` so be careful!
 Options to specify a return value include
 - `.and_call_original` => if we need to use the real code rather than a stubbed return value
 - `.and_return(100)` => can specify an actual value to return, or a stubbed variable
+
 ---
 
 ## Shared Examples
@@ -179,11 +232,24 @@ describe "#method_in_code" do
 end
 ```
 
+Of course, rspec is ruby, so we can also do this for brevity:
+```rb
+  context 'when the event is on a weekday' do
+    %w[monday tuesday wednesday thursday friday].each do |weekday|
+      let(:event) { day: 'weekday' }
+
+      it_behaves_like 'returns false and warns rollbar'
+    end
+  end
+```
+
+
 ### `shared_examples`
 - When we want to observe the same results for a variety of situations, create a `shared examples` block, which contains all of the expectations that we wish to assert.
 - The further upstream in the test file that you can move the shared examples, the more contexts you can use that example in, and the DRYer your tests can become.
 - As test files can become very repetitive as you assert that the same result will apply under a variety of conditions, this is an excellent way to keep code DRY.
 - If there are a significant number of shared examples, these can be moved to a seperate file and imported into the test file with a `require` statement.
+
 ### `it_behaves_like`
 To assert the shared examnples simply call the assertion with `it_behaves_like`
 You can have many `it_behaves_like` statements within a context, just as you might have many individual `it` statements.
@@ -193,7 +259,7 @@ You can have many `it_behaves_like` statements within a context, just as you mig
 When we are conducting a _Unit Test_ we only want to test the code in that unit (usually class). The class under test will interact with other classes / APIs and often it's appropriate to _Mock_ the response from those classes / APIs.
 Mocks and Stubs are _doubles_ (in the sense of stunt double), that _stand in_ for the response from external code.
 - A `mock` is a stand in for a larger thing, e.g. a whole class or API
-- A 'stub` is a stand in for a smaller thing, e.g. the response to a specific API method.
+- A `stub` is a stand in for a smaller thing, e.g. the response to a specific API method.
 
 We can talk of _injecting_ a mocked response into our tests. The point of doing so is
 - speed: we don't have to wait for external APIs to respond
@@ -263,14 +329,14 @@ let(:stub_states_response) do
       ]
     },
     start_execution: {
-      execution_arn: arn_of_settlement_machine,
+      execution_arn: arn_of_execution,
       start_date: invoke_time
     }
   }
 end
 
 ```
-###
+### `stub_const`
 A final noteworthy case is `stub_const`, to test for different const values, often env variables, like so
 ```rb
 before do
