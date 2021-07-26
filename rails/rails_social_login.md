@@ -38,10 +38,10 @@ Copy the following into the new file:
 
 # Template file for rails project
 
-# Info and inspiration from 
+# Info and inspiration from
 # https://github.com/dao42/rails-template/blob/master/composer.rb
 # https://github.com/excid3/jumpstart/blob/master/template.rb
-# 
+#
 # https://guides.rubyonrails.org/v4.0/rails_application_templates.html
 
 ################################################
@@ -151,7 +151,7 @@ and then visit _(best from an incognito window so if you sign up the browser doe
 - [localhost:3000](localhost:3000)
 - [localhost:3000/users/sign_up](localhost:3000/users/sign_up)
 
-So far so good, the app should run successfully and we should be able to see the pages above, and sign up & log in with email. 
+So far so good, the app should run successfully and we should be able to see the pages above, and sign up & log in with email.
 We’re not going to do any testing in this article, but good to load the app with necessary testing gems as per the template.
 
 
@@ -178,14 +178,14 @@ Next, Google
 - Click the button **Configure Consent Screen**
 - Fill in the application name and save
 - Under `Application Type` choose `Web Application`
-- Write in the name 
-- in the box marked `Authorised redirect URIs` write in `http://localhost:3000/users/auth/google_oauth2/callback` 
+- Write in the name
+- in the box marked `Authorised redirect URIs` write in `http://localhost:3000/users/auth/google_oauth2/callback`
 and then click **Create**
 
 Note down the _**Client ID**_, and _**Client Secret**_ shown on the page as they will be needed later.
 
 ---
-## Encrypted Credentials 
+## Encrypted Credentials
 
 Before we doing anything with the code, we need to save these Client IDs and Client Secrets in the `credentials.yml` file, which is a bit special, and we do it like this:
 
@@ -250,7 +250,7 @@ $ rails db:migrate
 ```
 
 
-next look in `config/initializers/devise.rb` and you’ll find the line 
+next look in `config/initializers/devise.rb` and you’ll find the line
 ```ruby
 #config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 ```
@@ -348,7 +348,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name   # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
-      # If you are using confirmable and the provider(s) you use validate emails, 
+      # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
     end
@@ -370,7 +370,7 @@ end
 
 And that’s it!
 
-But finally, so we can _see_ the success, let’s add the following to 
+But finally, so we can _see_ the success, let’s add the following to
 #### app/views/home/index.html
 ```erb
 <% if current_user %>
@@ -386,7 +386,7 @@ But finally, so we can _see_ the success, let’s add the following to
 For reference, below are the files used throughout the project as they stand at the end of the project:
 You can also see these on the [github repo for this project](https://github.com/johnofsydney/social_login) which is really the single source of truth.
 
-#### Gemfile 
+#### Gemfile
 ```ruby
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -471,7 +471,7 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.name = auth.info.name   # assuming the user model has a name
       user.image = auth.info.image # assuming the user model has an image
-      # If you are using confirmable and the provider(s) you use validate emails, 
+      # If you are using confirmable and the provider(s) you use validate emails,
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
     end

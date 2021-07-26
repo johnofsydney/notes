@@ -1,8 +1,6 @@
 # notes
 notes on how to do codey stuff
 
-- [JS Notes](./js_notes)
-- [Node Notes](./node_notes)
 - [Rails Notes](./rails/rails_notes)
     - [Rspec](./rails/rspec)
     - [Rails 6 new project with Devise and Rspec](./rails/rails_new_project_with_devise.md)
