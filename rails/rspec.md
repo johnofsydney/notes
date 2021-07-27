@@ -27,7 +27,7 @@ $ bundle exec rubocop
 $ bundle exec rspec
 
 # To run the tests in a specific file:
-$ bundle exec rspec spec/functions/dynamo_reader_spec.rb
+$ bundle exec rspec spec/functions/finalise_something_spec.rb
 
 # To run the tests at a specific line number:
 $ bundle exec rspec spec/functions/finalise_something_spec.rb:177
