@@ -236,7 +236,7 @@ Of course, rspec is ruby, so we can also do this for brevity:
 ```rb
   context 'when the event is on a weekday' do
     %w[monday tuesday wednesday thursday friday].each do |weekday|
-      let(:event) { day: 'weekday' }
+      let(:event) { day: weekday }
 
       it_behaves_like 'returns false and warns rollbar'
     end
