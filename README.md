@@ -13,6 +13,7 @@ notes on how to do codey stuff
     - [Require / Include / Extend](./ruby/require_include_extend)
     - [Inheritance](./ruby/inheritance)
 - [SQL notes](./sql_notes)
+- [GraphQL notes](./graphql_101.md)
 - [AWS notes](./aws/aws_notes)
   - [AWS Services (Basics)](./aws/aws_services_basics)
   - [AWS Developer Course](./aws/dev_course)
