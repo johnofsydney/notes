@@ -442,6 +442,29 @@ The `create` method persists the instance of the model to the database, while `b
 
 --
 
+## Miscallaneous Notes
+Using the `hash_including` matcher:
+```ruby
+expect(errors).to include(
+  a_hash_including(
+    "message" => AUTHENTICATION_ERROR
+  )
+)
+```
+
+Using the `match_array` matcher
+```rb
+expect(data.keys).to match_array(expected_fields)
+```
+
+Using `:aggregate_failures`
+```rb
+it "has a heading and a subheading", :aggregate_failures do
+  expect(subject.heading).to be_present
+  expect(subject.subheading).to be_present
+end
+```
+
 ## Readings
 - General overview: http://www.betterspecs.org/
 - When to use `let`: https://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979
