@@ -465,6 +465,15 @@ it "has a heading and a subheading", :aggregate_failures do
 end
 ```
 
+Using `request` and `response` for controller specs:
+when you send a `post` or ` `get` request as part of a controller or GraphQL test, both the `request` and the `response` objects are _magically_ available for interrogation, without needing to be declared.
+```rb
+it 'Creates a User' do
+  post '/graphql', params: { query: mutation_create_user }
+
+  json = JSON.parse(response.body)
+```
+
 ## Readings
 - General overview: http://www.betterspecs.org/
 - When to use `let`: https://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979
