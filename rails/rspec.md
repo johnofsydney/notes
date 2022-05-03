@@ -143,7 +143,7 @@ end
   - after  :example
   - after  :context
   - after  :suite
-- You can _usually_ move the invocation of the method under test into the before / do block, which is especially useful if most of your tests are concenred with side effects rather than the return value of the method under test.
+- You can _sometimes_ move the invocation of the method under test into the before / do block, but pay attention, because if your invocation is in a `before` block, then **none of the downstream before blocks will be applied before the invocation of the method under test**
 
 ---
 
@@ -469,6 +469,8 @@ Using `request` and `response` for controller specs:
 when you send a `post` or ` `get` request as part of a controller or GraphQL test, both the `request` and the `response` objects are _magically_ available for interrogation, without needing to be declared.
 ```rb
 it 'Creates a User' do
+  # NB do the `post` inside your `it` block, rather in a `before` block
+  # it is not DRY, but it is better (stops confusing effect of later before blocks being effectively ignored)
   post '/graphql', params: { query: mutation_create_user }
 
   json = JSON.parse(response.body)
