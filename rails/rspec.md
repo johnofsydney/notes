@@ -465,6 +465,11 @@ it "has a heading and a subheading", :aggregate_failures do
 end
 ```
 
+Using Regex and 'match`
+```rb
+expect(subject.errors).to match(/Your account has not been approved/)
+```
+
 Using `request` and `response` for controller specs:
 when you send a `post` or ` `get` request as part of a controller or GraphQL test, both the `request` and the `response` objects are _magically_ available for interrogation, without needing to be declared.
 ```rb
