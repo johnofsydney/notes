@@ -465,9 +465,20 @@ it "has a heading and a subheading", :aggregate_failures do
 end
 ```
 
-Using Regex and 'match`
+### Using Regex and 'match`
+Testing for a literal pattern
 ```rb
 expect(subject.errors).to match(/Your account has not been approved/)
+```
+
+Using a Regex variable
+```rb
+money_regex = /\$\d+\.\d{2}/
+expect(response['price']).to match(money_regex)
+```
+Using string interpolation within the Regexp to match to a test variable
+```rb
+expect(response['dollars']).to match(/\$(#{rate_cents.to_s[..-3]})\.(#{rate_cents.to_s[-2..]})/)
 ```
 
 Using `request` and `response` for controller specs:
