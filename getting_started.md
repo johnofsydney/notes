@@ -30,16 +30,37 @@
   - Clone notes: https://github.com/johnofsydney/notes
   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 
+- SHELL
+  - Maybe oh-my-zsh is NOT required?
+    - If no, then look for PS1 settings here: `bash_prompt.bash`
+  - The following shell files should be loaded
+    ```
+    source ~/Projects/John/settings/my_extensions.bash
+    source ~/Projects/John/settings/work_aliases.bash
+    source ~/Projects/John/settings/work_functions.bash
+    ```
+  - rbenv requires to be the last thing in .zshrc;
+    ```
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    ```
+
+
+
 Use Homebrew to install;
 ```
 $ brew install rbenv ruby-build postgres redis cask
 
 # and maybe these
 $ brew install rbenv-gemset postgis shared-mime-info graphviz imagemagick
+$ brew install fig
+$ fig
 
 # and then pin;
 brew pin postgresql
 # run brew list --pinned to show pinned packages
+
+
 ```
 
 
