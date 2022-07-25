@@ -61,5 +61,5 @@ More git settings
 ```
 $ git config --global user.name "Your Real Name"
 $ git config --global user.email me@example.com
-$ core.editor=code --wait
+$ core.editor code --wait
 ```
