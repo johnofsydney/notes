@@ -31,7 +31,7 @@ Pop aloong to github.com and sign in.
 
 ```sh
 # Create a new SSH key pair;
-$ ssh-keygen -t ed25519 -C "your@email.com" # the emal for your github account
+$ ssh-keygen -t ed25519 -C "your@email.com" # the email for your github account
 
 # add this new key to your keychain
 $ eval "$(ssh-agent -s)"
@@ -40,9 +40,9 @@ $ ssh-add ~/.ssh/id_ed25519
 
 Then open up the github page
 https://github.com/settings/keys
-click **New SSH Key**
-ccopy the text from `~/.ssh/id_ed25519.pub` and paste that in as the *Key*
-Use a *Title* that identifies the computer you're using
+- click **New SSH Key**
+- copy the text from `~/.ssh/id_ed25519.pub` and paste that in as the *Key*
+- Use a *Title* that identifies the computer you're using
 
 
 Clone some good repos
