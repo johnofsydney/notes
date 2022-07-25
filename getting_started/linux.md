@@ -50,7 +50,7 @@ Clone some good repos
 $ git clone git@github.com:johnofsydney/notes.git
 $ git clone git@github.com:johnofsydney/settings.git
 ```
-
+https://www.rosehosting.com/blog/how-to-install-ruby-on-rails-on-debian-11/
 Add the following lines to `~/.bashrc`
 ```sh
 source ~/Projects/John/settings/my_extensions.bash
@@ -61,5 +61,20 @@ More git settings
 ```
 $ git config --global user.name "Your Real Name"
 $ git config --global user.email me@example.com
-$ core.editor=code --wait
+$ core.editor code --wait
 ```
+
+## Install Ruby on Rails
+https://www.rosehosting.com/blog/how-to-install-ruby-on-rails-on-debian-11/
+
+
+Terminal needs to run as a login
+`$ bash -l`
+`$ rvm use 3.0.0`
+
+To install Postgresql
+`$ sudo apt install libpq-dev`
+
+more pg stuff:
+https://linuxhint.com/start-postgresql-linux/
+
