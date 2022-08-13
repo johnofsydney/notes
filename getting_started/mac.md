@@ -21,6 +21,7 @@
     user.email=john.coot@email.com
     init.defaultbranch=main
     pull.rebase=false
+git config --global init.defaultBranch main
     ```
 
 - GITHUB: login to https://github.com/johnofsydney
@@ -35,7 +36,7 @@
     - If no, then look for PS1 settings here: `bash_prompt.bash`
   - The following shell files should be loaded
     ```
-    source ~/Projects/John/settings/my_extensions.bash> scan on
+    source ~/Projects/John/settings/my_extensions.bash
     source ~/Projects/John/settings/work_aliases.bash
     source ~/Projects/John/settings/work_functions.bash
     ```

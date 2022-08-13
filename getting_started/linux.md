@@ -78,3 +78,10 @@ To install Postgresql
 more pg stuff:
 https://linuxhint.com/start-postgresql-linux/
 
+`$ raspi-gpio get` to show GPIO information
+
+[john@raspberrypi] ~/Projects/John/notes [master] 19:03:28
+$ raspi-gpio set 23 op pn dh
+
+[john@raspberrypi] ~/Projects/John/notes [master] 19:03:33
+$ raspi-gpio set 23 op pn dl
