@@ -3,25 +3,20 @@
 ## with a new Mac
 - BREW: install home-brew from: https://brew.sh/
 - XCODE: `$ xcode-select --install`
-
-- WARP: `brew install --cask warp`
+- VS CODE: `$ brew install --cask visual-studio-code`
+- WARP: `$ brew install --cask warp`
+- CAT/BAT: `$ brew install bat`
 
 - OTHERS:
 
 - GIT SETTINGS:
   - Set the global settings like this; (personal folders can have their own settings)
-    ```
+    ```sh
     $ git config --global user.name "Your Real Name"
     $ git config --global user.email me@example.com
-    ```
-    ```
-    core.editor=code --wait
-    core.excludesfile=/Users/john.coote/.gitignore_global
-    user.name=John Coote
-    user.email=john.coot@email.com
-    init.defaultbranch=main
-    pull.rebase=false
-git config --global init.defaultBranch main
+    $ git config --global core.editor code --wait
+    $ git config --global core.excludesfile /Users/<username>/.gitignore_global
+    $ git config --global pull.rebase false
     ```
 
 - GITHUB: login to https://github.com/johnofsydney
@@ -35,13 +30,13 @@ git config --global init.defaultBranch main
   - Maybe oh-my-zsh is NOT required?
     - If no, then look for PS1 settings here: `bash_prompt.bash`
   - The following shell files should be loaded
-    ```
+
     source ~/Projects/John/settings/my_extensions.bash
     source ~/Projects/John/settings/work_aliases.bash
     source ~/Projects/John/settings/work_functions.bash
     ```
   - rbenv requires to be the last thing in .zshrc;
-    ```
+    ```sh
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
     ```
@@ -49,12 +44,12 @@ git config --global init.defaultBranch main
 
 
 Use Homebrew to install;
-```
+```sh
 $ brew install rbenv ruby-build postgres redis cask
 
 # and maybe these
 $ brew install rbenv-gemset postgis shared-mime-info graphviz imagemagick
-$ brew install fig
+$ brew install fig # does not work with warp
 $ fig
 
 # and then pin;
@@ -65,7 +60,7 @@ brew pin postgresql
 ```
 
 
-- CAT/BAT: `brew install bat`
+
 
 - NODE / NVM
   - Open terminal, install NVM from: https://github.com/nvm-sh/nvm#installing-and-updating
