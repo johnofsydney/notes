@@ -17,6 +17,7 @@
     $ git config --global core.editor code --wait
     $ git config --global core.excludesfile /Users/<username>/.gitignore_global
     $ git config --global pull.rebase false
+    $ git config --global color.ui true
     ```
 
 - GITHUB: login to https://github.com/johnofsydney
@@ -94,6 +95,13 @@ https://gorails.com/setup/osx/12-monterey
 
 ## General work notes
 
+### Loading Database Dump
+Get the latest database dump and insert it into your local dev database:
+`$ psql -d <database_name> < path/to/dump_name.sql`
+
+alternative:
+`$ psql -U db_user db_name < dump_name.sql`
+
 ### If rails won't restart
 https://stackoverflow.com/questions/24627701/a-server-is-already-running-check-tmp-pids-server-pid-exiting-rails
 Restarting rails server when crashed and still running;
@@ -103,7 +111,12 @@ Restarting rails server when crashed and still running;
 ### If postgres won't restart
 https://stackoverflow.com/questions/36436120/fatal-error-lock-file-postmaster-pid-already-exists
 1. Delete the postmaster.pid file:
-  `$rm /opt/homebrew/var/postgresql/postmaster.pid` # M1 Mac
-  `$rm /usr/local/var/postgres/postmaster.pid` # for older Mac
+  `$rm /opt/homebrew/var/postgresql/postmaster.pid`    # M1 Mac
+  `$rm /usr/local/var/postgres/postmaster.pid`         # for older Mac
+  `$rm $(brew --prefix)/var/postgres/postmaster.pid`   # for either? untested
 2. Restart your postgres:
   `$ brew services restart postgresql`
+
+
+### To restart redis:
+  `$ brew services restart redis`
