@@ -144,7 +144,7 @@ $ rails g rspec:install
 
 Check it’s working with
 ```
-$ rail s
+$ rails s
 ```
 
 and then visit _(best from an incognito window so if you sign up the browser doesn’t remember you)_
