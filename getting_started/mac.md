@@ -18,6 +18,7 @@
     $ git config --global core.excludesfile /Users/<username>/.gitignore_global
     $ git config --global pull.rebase false
     $ git config --global color.ui true
+    $ git config --global fetch.prune true
     ```
 
 - GITHUB: login to https://github.com/johnofsydney
