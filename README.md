@@ -1,8 +1,6 @@
 # notes
 notes on how to do codey stuff
 
-- [JS Notes](./js_notes)
-- [Node Notes](./node_notes)
 - [Rails Notes](./rails/rails_notes)
     - [Rspec](./rails/rspec)
     - [Rails 6 new project with Devise and Rspec](./rails/rails_new_project_with_devise.md)
@@ -15,6 +13,7 @@ notes on how to do codey stuff
     - [Require / Include / Extend](./ruby/require_include_extend)
     - [Inheritance](./ruby/inheritance)
 - [SQL notes](./sql_notes)
+- [GraphQL notes](./graphql_101.md)
 - [AWS notes](./aws/aws_notes)
   - [AWS Services (Basics)](./aws/aws_services_basics)
   - [AWS Developer Course](./aws/dev_course)
