@@ -41,17 +41,23 @@ $ brew install --cask spotify
     ```
 
 - GITHUB: login to https://github.com/johnofsydney
-  - Make a personal folder
-  - Will need to authenticate keys for new machine: https://github.com/settings/keys
-  - Clone settings: https://github.com/johnofsydney/settings
-  - Clone notes: https://github.com/johnofsydney/notes
-  - https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+  For SSH repos
+    - Make a personal folder
+    - Will need to authenticate keys for new machine: https://github.com/settings/keys
+    - Clone settings: https://github.com/johnofsydney/settings
+    - Clone notes: https://github.com/johnofsydney/notes
+    - https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+  For HTTPS repos
+    - create a token with appropriate permissions
+      - https://github.com/settings/tokens
+    - use it in place of password
+    - docs: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 - SHELL
-  - Maybe oh-my-zsh is NOT required?
-    - If no, then look for PS1 settings here: `bash_prompt.bash`
-  - The following shell files should be loaded
-
+  - for warp, Oh-my-zsh is not required. look for PS1 settings here: `bash_prompt.bash`
+  - get ohmyzsh
+    - sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  - The following shell files should be loaded (add them to .zshrc)
     source ~/Projects/John/settings/my_extensions.bash
     source ~/Projects/John/settings/work_aliases.bash
     source ~/Projects/John/settings/work_functions.bash

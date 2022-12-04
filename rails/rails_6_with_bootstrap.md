@@ -51,7 +51,7 @@ $ yarn add popper.js
 $ yarn add bootstrap
 
 # to use materialize css swap the last line for
-# $ yard add materialize
+# $ yard add materialize-css
 ```
 
 ## Modify the application.html.erb thusly
