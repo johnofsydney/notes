@@ -3,9 +3,26 @@
 ## with a new Mac
 - BREW: install home-brew from: https://brew.sh/
 - XCODE: `$ xcode-select --install`
-- VS CODE: `$ brew install --cask visual-studio-code`
-- WARP: `$ brew install --cask warp`
-- CAT/BAT: `$ brew install bat`
+
+Install applications
+```sh
+$ brew install iterm2      # basic terminal
+$ brew install --cask warp # better terminal
+
+# Browsers
+$ brew install --cask firefox
+$ brew install --cask google-chrome
+$ brew install --cask brave-browser
+
+# Editors
+$ brew install --cask visual-studio-code
+$ brew install --cask rubymine
+
+# Helpful apps
+$ brew install bat # a better cat
+$ brew install ag  # Silver Searcher; a faster grep
+$ brew install --cask spotify
+```
 
 - OTHERS:
 
