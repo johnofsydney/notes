@@ -24,6 +24,14 @@ $ brew install ag  # Silver Searcher; a faster grep
 $ brew install --cask spotify
 ```
 
+Updates and Maintenance
+```
+$ brew update
+$ brew upgrade
+$ softwareupdate --install --all
+$ brew cleanup
+```
+
 - OTHERS:
 
 - GIT SETTINGS:
