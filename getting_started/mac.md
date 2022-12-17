@@ -23,14 +23,16 @@
     $ git config --global --add push.autoSetupRemote true
     ```
 
-- GITHUB: login to https://github.com/johnofsydney
-  For SSH repos
-    - Make a personal folder
-    - Will need to authenticate keys for new machine: https://github.com/settings/keys
-    - Clone settings: https://github.com/johnofsydney/settings
-    - Clone notes: https://github.com/johnofsydney/notes
-    - https://docs.github.com/en/authentication/connecting-to-github-with-ssh
-  For HTTPS repos
+- Get settings / dot files / notes / GITHUB:
+- login to https://github.com/johnofsydney
+  - Make a personal folder (eg ~/Projects/John)
+  - Clone settings: https://github.com/johnofsydney/settings
+  - Clone notes: https://github.com/johnofsydney/notes
+  For accessing repos via SSH
+  - create a public / private key pair. Paste the publie one into github
+    - https://github.com/settings/keys
+    - docs https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+  For accessing repos via HTTPS
     - create a token with appropriate permissions
       - https://github.com/settings/tokens
     - use it in place of password
