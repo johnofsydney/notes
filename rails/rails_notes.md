@@ -1,28 +1,28 @@
 # Rails Notes
 
-## Helpers 
+## Helpers
 Remove logic from the view, by putting it in a helper.
 - The view itself is cleaner and easier to read.
 - The logic can be tested in unit tests.
 
 - best not to overload the helper. Keep most of the logic in the controller, model or lib
 
-- A helper is a module which rails will *auto-magically* include in controllers and views. 
+- A helper is a module which rails will *auto-magically* include in controllers and views.
 - Rails < 4 - helpers are available within controllers / views of the same name.
 - Rails > 5 - helpers are availble globally. So be careful.
 
-https://mixandgo.com/learn/the-beginners-guide-to-rails-helpers  
+https://mixandgo.com/learn/the-beginners-guide-to-rails-helpers
 
-## Concerns 
+## Concerns
 Remove code from model file, particularly when it can be used across several different models. It is then *auto-magically* `included` in the models where required.
 
 ## Service Class / Service Object
-Another place to put code that doesn't truly belong in either a model or a controller. 
+Another place to put code that doesn't truly belong in either a model or a controller.
 If the code can be used across several models / controllers - consider moving it to a service class.
 If the controller codebase is getting too long, and it's core functionality (eg CRUD) would be clearer by moving some code elsewhere - consider moving it to a service class.
 Each service class should encapsulate a single piece of business logic. Of course you can combine several classes in a module to keep track of things.
 https://www.toptal.com/ruby-on-rails/rails-service-objects-tutorial
-Place your service object in `app/services` Rails will load this object *auto-magically* because it autoloads everything under app/. 
+Place your service object in `app/services` Rails will load this object *auto-magically* because it autoloads everything under app/.
 
 
 ## Rails magic - autoloading
@@ -49,7 +49,7 @@ TODO: write up a personal description when I have a personal example
 ## Gems
 ```rb
   # using a gem in the normal fashion
-  gem 'foo_bar_models', '~> 0.2.802', 
+  gem 'foo_bar_models', '~> 0.2.802',
     # then require: 'foo_bar/models'
 
   # using a gem via git, specifying a branch
@@ -59,7 +59,7 @@ TODO: write up a personal description when I have a personal example
   # using a local gem
   gem 'foo_bar_models', path: '../foo_bar-models'
     # then require: 'foo_bar/models',
-    
+
 ```
 
 ### Updating gems
@@ -146,3 +146,59 @@ So, if the instance of the class / model / record, cannot be created (e.g. a val
 => Raises Exception
 ```
 
+## Validation
+Validations are used to ensure that only valid data is saved into your database. Model-level validations are the best way to ensure that only valid data is saved into your database. They are database agnostic, cannot be bypassed by end users, and are convenient to test and maintain.
+The following methods trigger validations, and will save the object to the database only if the object is valid:
+- create
+- create!
+- save
+- save!
+- update
+- update_attributes
+- update_attributes!
+The bang versions (e.g. save!) raise an exception if the record is invalid. The non-bang versions don’t: save and update_attributes return false, create and update just return the objects.
+
+
+The following methods skip validations, and will save the object to the database regardless of its validity. They should be used with caution.
+- decrement!
+- decrement_counter
+- increment!
+- increment_counter
+- toggle!
+- touch
+- update_all
+- update_attribute
+- update_column
+- update_counters
+
+# Callbacks
+Callbacks are methods that get called at certain moments of an object’s life cycle. With callbacks it is possible to write code that will run whenever an Active Record object is created, saved, updated, deleted, validated, or loaded from the database.
+- **Creating an Object**
+  - before_validation
+  - after_validation
+  - before_save
+  - around_save
+  - before_create
+  - around_create
+  - after_create
+  - after_save
+- **Updating an Object**
+  - before_validation
+  - after_validation
+  - before_save
+  - around_save
+  - before_update
+  - around_update
+  - after_update
+  - after_save
+- **Destroying an Object**
+  - before_destroy
+  - around_destroy
+  - after_destroy
+
+
+
+### update attributes / columns
+`update_attributes` tries to **validate** the record, calls **callbacks** and **saves**;
+`update_attribute` doesn't **validate** the record, calls **callbacks** and **saves**;
+`update_column` doesn't **validate** the record, doesn't call **callbacks**, doesn't call **save** method, though it does update record in the database.
