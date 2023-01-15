@@ -343,7 +343,9 @@ before do
   stub_const('ENV', { 'AWS_STAGE' => 'prod' })
 end
 ```
-
+Use cases
+- pretend to be in a different environment, as per above example
+- inject a smaller value to prevent many iterations
 ---
 ## Testing exceptions
 In order to test error handling it is necessary to raise exceptions, and to test for them
@@ -353,11 +355,11 @@ before do
   allow(Person).to_receive(:new).and_return(mock_person)
 end
 
-let(:person) double('Person')
+let(:mock_person) double('Person')
 
 context 'when there are handled errors' do
   before do
-    allow(person).to_receive(:type).and_raise(NameError) # a handled error
+    allow(mock_person).to_receive(:type).and_raise(NameError) # a handled error
   end
 
   # If this is a handled error, then there's nothing special about the assertion.
@@ -366,11 +368,11 @@ end
 
 context 'when there are unhandled errors' do
   before do
-    allow(person).to_receive(:type).and_raise(TypeError) # an unhandled error
+    allow(mock_person).to_receive(:type).and_raise(TypeError) # an unhandled error
   end
 
   # If this is an unhandled error, then we must wrap the invocation in a block.
-  it { expect { perform }.to raise_exception(NameError) }
+  it { expect { perform }.to raise_exception(TypeError) }
 end
  ```
 Under normal circumstances the invocation of the method under test (shorthand here is `perform`) will be invoked and evaluated first, and then compared to the assertion.
