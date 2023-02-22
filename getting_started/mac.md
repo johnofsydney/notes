@@ -8,6 +8,8 @@ Install applications
 ```sh
 $ brew install iterm2      # basic terminal
 $ brew install --cask warp # better terminal
+$ brew install git
+$ brew install git-recent
 
 # Browsers
 $ brew install --cask firefox
