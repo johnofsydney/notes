@@ -24,10 +24,19 @@ $ brew install --cask rubymine
 $ brew install bat # a better cat
 $ brew install ag  # Silver Searcher; a faster grep
 $ brew install --cask spotify
+$ brew install --cask postman
+$ brew install --cask paw
+$ brew install --cask rectangle
+
+# maybes
+$ brew install httpie # a better curl
+$ brew install tldr   # summarise articles
+$ brew install --cask clipy
+
 ```
 
 Updates and Maintenance
-```
+```sh
 $ brew update
 $ brew upgrade
 $ softwareupdate --install --all
