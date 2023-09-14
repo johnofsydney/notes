@@ -57,6 +57,10 @@ $ brew cleanup
     $ git config --global fetch.prune true
     $ git config --global --add push.default current
     $ git config --global --add push.autoSetupRemote true
+    $ git config --global --add merge.ff true
+    # when possible resolve the merge as a fast-forward (only update the branch pointer to match the merged branch; do not create a merge commit)
+
+    $ git config --list
     ```
 
 - GITHUB: login to https://github.com/johnofsydney

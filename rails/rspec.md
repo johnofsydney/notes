@@ -4,7 +4,7 @@
 Assuming you have the gem "rspec" in your gemfile, then
 ```sh
 $ bundle install
-$ rspec init
+$ rspec --init
 ```
 is probably enough to get started
 
