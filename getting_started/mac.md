@@ -7,7 +7,7 @@
 Install applications
 ```sh
 $ brew install iterm2      # basic terminal
-$ brew install --cask warp # better terminal
+$ brew install --cask warp # different terminal
 $ brew install git
 $ brew install git-recent
 
@@ -21,12 +21,14 @@ $ brew install --cask visual-studio-code
 $ brew install --cask rubymine
 
 # Helpful apps
-$ brew install bat # a better cat
-$ brew install ag  # Silver Searcher; a faster grep
+$ brew install bat              # a better cat
+$ brew install ag               # Silver Searcher; a faster grep
 $ brew install --cask spotify
-$ brew install --cask postman
-$ brew install --cask paw
-$ brew install --cask rectangle
+$ brew install --cask postman   # API client
+$ brew install --cask paw       # different API client
+$ brew install --cask rectangle # excellent window manager
+$ brew install fzf              # fuzzy find, better terminal recall
+$ $(brew --prefix)/opt/fzf/install
 
 # maybes
 $ brew install httpie # a better curl
