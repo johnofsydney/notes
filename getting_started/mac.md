@@ -7,7 +7,9 @@
 Install applications
 ```sh
 $ brew install iterm2      # basic terminal
-$ brew install --cask warp # better terminal
+$ brew install --cask warp # different terminal
+$ brew install git
+$ brew install git-recent
 
 # Browsers
 $ brew install --cask firefox
@@ -19,13 +21,24 @@ $ brew install --cask visual-studio-code
 $ brew install --cask rubymine
 
 # Helpful apps
-$ brew install bat # a better cat
-$ brew install ag  # Silver Searcher; a faster grep
+$ brew install bat              # a better cat
+$ brew install ag               # Silver Searcher; a faster grep
 $ brew install --cask spotify
+$ brew install --cask postman   # API client
+$ brew install --cask paw       # different API client
+$ brew install --cask rectangle # excellent window manager
+$ brew install fzf              # fuzzy find, better terminal recall
+$ $(brew --prefix)/opt/fzf/install
+
+# maybes
+$ brew install httpie # a better curl
+$ brew install tldr   # summarise articles
+$ brew install --cask clipy
+
 ```
 
 Updates and Maintenance
-```
+```sh
 $ brew update
 $ brew upgrade
 $ softwareupdate --install --all
@@ -46,6 +59,10 @@ $ brew cleanup
     $ git config --global fetch.prune true
     $ git config --global --add push.default current
     $ git config --global --add push.autoSetupRemote true
+    $ git config --global --add merge.ff true
+    # when possible resolve the merge as a fast-forward (only update the branch pointer to match the merged branch; do not create a merge commit)
+
+    $ git config --list
     ```
 
 - Get settings / dot files / notes / GITHUB:
