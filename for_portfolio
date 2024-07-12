@@ -1,0 +1,70 @@
+Personal projects etc
+
+My RSpec notes, which I started when I was a junior, have added to over time, and which I have provided to several junior engineers over the years now
+https://github.com/johnofsydney/notes/blob/master/rails/rspec.md
+
+
+Pitcher / Catcher
+This is a pair of apps (in fact there are more catchers (1)) to demonstrate proof of concept for updating data in one app when data in another changes.
+An ex-colleague had the idea of a central library of technical documents, to which customers could subscribe, and their database (Catcher) would be updated automatically whenever a document was updated on the central library (Pitcher).
+Fundamentally the catcher subscribes to a webhook, that is sent each time the pitcher updates a document.
+(1) I made a few different catcher apps, but basically they're all doing the same thing; accepting a webhook post when data changes on the pitcher. Not all catchers are subscribed to the same documents
+
+Ruby 3.0, Rails 7.0, Postgres
+
+Storage: AWS::S3 Ruby Client
+HTTP Client: Faraday
+Background Jobs: Delayed Job (uses Postgres for the queue, with a rake task to poll for jobs inn the queue)
+Hotwire: uses Turbo / Broadcast to replace the html in the catcher app view when it is updated in the database.
+
+Repo (pitcher): https://github.com/johnofsydney/pitcher/
+Repo (catcher): https://github.com/johnofsydney/catcher-acme/
+
+===
+
+Ruby On Rails on Raspberry Pi
+Some basic sensor and hardware interaction with Ruby on Rails on a Pi.
+- interactive use, by visiting `/led/on` and `/led/off`, simply turns on or off all outputs
+- automated
+    - there is a crontab entry that fires a rake task every minute (`/lib/tasks/breadsched.rake`)
+    - rake task reads the value of the temp sensor and sends a request to `/heater/on` or `/heater/off` depending on the value.
+- webhook; listens for incoming requests on `/hook/github`. I configured the github repo to send a webhook post request for any event on this repo. I used ngrok to allow incoming requests to my server.
+
+Ruby 2.7, Rails 7.0.3. SQLite3, ngrok
+
+Repo: https://github.com/johnofsydney/brails_101/
+Slide Deck: https://docs.google.com/presentation/d/e/2PACX-1vQc84GUHOVtDj5WkIE4rUGM_EkT0jwFBu-1TdAmXTDMb95dsr6PPIahT1KafdBBCSlz4goC4JdIaii8/pub?start=true&loop=false&delayms=8000&slide=id.g25809b53f2f_0_147
+
+===
+
+Some fun with colors; I got the color values from some photos I had taken and had some practice with CSS variables and also trying to make some complementary themes.
+
+Repo: https://github.com/johnofsydney/color-schemes
+Live Site: https://johnofsydney.github.io/color-schemes/
+
+HTML, CSS, Bootstrap
+
+
+===
+
+Sonos Blame
+Answers the question: _Who put that terrible song on the office sonos?_, well it does if all team members are signed up to this app...
+Login to this app with your spotify login, and it will pull all your listening data. You can then query the app with an artist name, and it will return the user who is the biggest fan of that artist.
+Obviously not a very serious project, it does offer some interesting insights into your Spotify tastes.
+
+Ruby: 2.6.4, Rails: 6.0, Postgres, Sidekiq, OAuth, RSpec, Faker
+
+Repo: https://github.com/johnofsydney/sonos_blame
+
+
+===
+
+divBow
+Some fun with maths, colors, jQuery and time based animations
+
+HTML, CSS, jQuery, CSS Grid
+
+Repo: https://github.com/johnofsydney/divBow
+Live Site: https://johnofsydney.github.io/divBow/
+
+
